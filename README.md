@@ -1,3 +1,2 @@
 # tide-data-tracker
-
-![TideAppUML](https://github.com/user-attachments/assets/41cdc395-f0a0-45c3-909f-4b82cbb0954e)
+![TideApp](https://github.com/user-attachments/assets/48a3270d-ebb3-43dd-ba6f-41eb1c1dad79)
