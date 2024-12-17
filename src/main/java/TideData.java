@@ -3,19 +3,35 @@ import java.time.LocalDate;
 public class TideData {
 
     // INSTANCE VARIABLES
-
+    /** Time of the high or low tide. */
     private LocalDate time;
+
+    /** Height of the high or low tide in feet. */
     private double tideHeight;
+
+    /**
+     * true: high tide
+     * false: low tide
+     * */
     private boolean isHighTide;
 
     // CONSTRUCTORS
 
+    /**
+     * Default Constructor
+     */
     public TideData() {
         time = LocalDate.now();
         tideHeight = 0;
-        isHighTide = false;
+        isHighTide = true;
     }
 
+    /**
+     * Full Constructor
+     * @param time Time of the high or low tide.
+     * @param tideHeight Height of the high or low tide in feet.
+     * @param isHighTide true: high tide, false: low tide
+     */
     public TideData(LocalDate time, double tideHeight, boolean isHighTide) {
         this.time = time;
         this.tideHeight = tideHeight;
