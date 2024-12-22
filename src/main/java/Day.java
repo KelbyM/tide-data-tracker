@@ -18,7 +18,7 @@ public class Day {
     /**
      * Full Constructor
      * @param date The date of the day.
-     * @param tideData Tide data for the day.
+     * @param tides All tide data for the day.
      * @param moonData Moon data for the day.
      */
     public Day(LocalDate date, ArrayList<TideData> tides, MoonData moonData) {

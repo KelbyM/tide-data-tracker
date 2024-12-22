@@ -1,2 +1,2 @@
 # tide-data-tracker
-![TideApp](src/main/resources/ReadMeFiles/TideApp.jpg)
+![TideApp](src/main/resources/ReadMeFiles/TideAppUML.jpg)
