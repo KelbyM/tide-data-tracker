@@ -1,3 +1,5 @@
+package org.kelbymannigel.tidedatatracker;
+
 import java.util.ArrayList;
 
 public interface TideDataProcessor {

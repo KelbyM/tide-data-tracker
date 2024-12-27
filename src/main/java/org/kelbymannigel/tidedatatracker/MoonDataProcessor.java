@@ -1,3 +1,5 @@
+package org.kelbymannigel.tidedatatracker;
+
 public interface MoonDataProcessor {
 
     /**

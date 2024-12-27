@@ -1,4 +1,5 @@
-import java.time.LocalDate;
+package org.kelbymannigel.tidedatatracker;
+
 import java.time.LocalDateTime;
 
 public class TideData {

@@ -1,7 +1,7 @@
-import javafx.fxml.FXMLLoader;
+package org.kelbymannigel.tidedatatracker;
+
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
