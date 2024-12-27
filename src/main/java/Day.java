@@ -28,6 +28,7 @@ public class Day {
     }
 
     // ASSESSORS/MUTATORS
+
     public LocalDate getDate() {
         return date;
     }
@@ -53,6 +54,7 @@ public class Day {
     }
 
     // OTHER METHODS
+
     public VBox getGUI() {
         return null;
     }
@@ -61,9 +63,7 @@ public class Day {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Day day = (Day) o;
-
         if (!date.equals(day.date)) return false;
         if (!tides.equals(day.tides)) return false;
         return moonData.equals(day.moonData);

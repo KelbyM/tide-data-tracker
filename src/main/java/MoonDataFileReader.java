@@ -70,8 +70,13 @@ public class MoonDataFileReader implements MoonDataProcessor {
         return true;
     }
 
+
     // OTHER FUNCTIONS
 
+    /**
+     * Returns the next day's moon data.
+     * @return The next day's moon data.
+     */
     @Override
     public MoonData getNextMoonData() {
         // if there is no next item to read
@@ -101,6 +106,11 @@ public class MoonDataFileReader implements MoonDataProcessor {
         return moonData;
     }
 
+    /**
+     * Checks if there is another line of text in the moon data file.
+     * @return true: another line of text exists
+     *         false: the end of file has been reached
+     */
     @Override
     public boolean hasNextMoonData() {
         String line = "";

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 public class TideData {
 
     // INSTANCE VARIABLES
+
     /** Time of the high or low tide. */
     private LocalDateTime time;
 
@@ -71,9 +72,7 @@ public class TideData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         TideData tideData = (TideData) o;
-
         if (Double.compare(tideData.tideHeight, tideHeight) != 0) return false;
         if (isHighTide != tideData.isHighTide) return false;
         return time.equals(tideData.time);
