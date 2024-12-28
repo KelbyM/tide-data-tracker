@@ -31,7 +31,7 @@ public class TideDataFileReader implements TideDataProcessor {
             setFilePath(filePath);
             // connecting the reader to the file
             reader = new BufferedReader(new FileReader(filePath));
-            //findData();
+            findData();
         } catch(IOException e) {
             System.out.println("Error: Unable to connect to the file. " + e.getMessage());
         }
