@@ -1,0 +1,19 @@
+NOAA/NOS/CO-OPS
+Disclaimer: These data are based upon the latest information available as of the date of your request, and may differ from the published tide tables.
+Annual Tide Predictions
+StationName: South San Diego Bay 
+State: CA 
+Stationid: 9410135
+Prediction Type: Harmonic
+From: 20240101 01:12 - 20241231 22:32
+Units: Feet and Centimeters
+Time Zone: LST_LDT
+Datum: MLLW
+Interval Type: High/Low
+
+2024/01/01	Mon	01:12	3.97		121			H
+2024/01/01	Mon	05:53	2.99		91			L
+2024/01/01	Mon	11:40	4.72		144			H
+2024/01/01	Mon	18:54	0.70		21			L
+2024/01/02	Tue	01:53	4.13		126			H
+2024/01/02	Tue	07:14	2.99		91			L
