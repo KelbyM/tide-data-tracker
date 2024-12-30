@@ -27,9 +27,11 @@ public class MoonDataFileReader implements MoonDataProcessor {
      */
     public MoonDataFileReader(String filePath) {
         try {
-            this.filePath = filePath;
-            // connecting the reader to the file
+            setFilePath(filePath);
             reader = new BufferedReader(new FileReader(filePath));
+            // try to find the data header line in the file
+            if(!findData()) System.out.println("Error: Unable to find the data header line.\n");
+            //setReader(new BufferedReader(reader));
         } catch(IOException e) {
             System.out.println("Error: Unable to connect to the file. " + e.getMessage());
         }
@@ -59,6 +61,7 @@ public class MoonDataFileReader implements MoonDataProcessor {
         return reader;
     }
 
+
     /**
      * Sets the BufferedReader variable.
      * @param reader The BufferedReader.
@@ -74,6 +77,38 @@ public class MoonDataFileReader implements MoonDataProcessor {
 
 
     // OTHER FUNCTIONS
+
+    /**
+     * Finds the data header line in the moon data file.
+     * @return true: Data header line was found.
+     *         false: Data header line was not found.
+     */
+    public boolean findData() {
+        try {
+            // connecting the reader to the file
+            String line;
+            // iterating until the moon data header is found
+            while((line = reader.readLine()) != null) {
+                line = line.trim();
+                // separating line at spaces
+                String[] parts = line.split("\\s+");
+                // checking if the data header line has been found
+                if(
+                        parts[0].equalsIgnoreCase("Date") &&
+                        parts[1].equalsIgnoreCase("Time") &&
+                        parts[2].equalsIgnoreCase("Phase") &&
+                        parts[3].equalsIgnoreCase("Age")
+                ) {
+                    // data header line has been found
+                    return true;
+                }
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        // data header line has not been found
+        return false;
+    }
 
     /**
      * Returns the next day's moon data.
@@ -98,9 +133,9 @@ public class MoonDataFileReader implements MoonDataProcessor {
                 reader.readLine();
             }
             //Parse the info from the input
-            double luminance = Double.parseDouble(input[1]);
-            double timeSinceNewMoon = Double.parseDouble(input[2]);
-            moonData = new MoonData(luminance, timeSinceNewMoon);
+            double illumination = Double.parseDouble(input[1]);
+            double daysSinceNewMoon = Double.parseDouble(input[2]);
+            moonData = new MoonData(illumination, daysSinceNewMoon);
         } catch (IOException ioe) {
 
             System.out.println("Error occurred when reading moon file: " + ioe.getMessage());
@@ -121,8 +156,10 @@ public class MoonDataFileReader implements MoonDataProcessor {
             if(!reader.ready()) return false;
             // set return location
             reader.mark(4096);
-            // read the next line
-            line = reader.readLine();
+            // read ahead looking for another 24 lines
+            for (int linesAhead = 0; linesAhead < 24; linesAhead++) {
+                line = reader.readLine();
+            }
             // check if location was valid
             if(line != null) {
                 // reset read location
