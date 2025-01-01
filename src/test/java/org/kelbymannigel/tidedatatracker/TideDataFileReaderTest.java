@@ -36,7 +36,7 @@ class TideDataFileReaderTest {
     }
 
     /**
-     * Tests if hasNextTideData returns true when more tide data exists and false if the end of file has been reached.
+     * Tests if getNextTideData can read multiple days of tide data correctly.
      */
     @Test
     void getNextTideData() {
