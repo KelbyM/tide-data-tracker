@@ -76,4 +76,13 @@ public class Day {
         result = 31 * result + moonData.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Day{" +
+                "date=" + date +
+                ", tides=" + tides +
+                ", moonData=" + moonData +
+                '}';
+    }
 }
