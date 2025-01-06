@@ -4,16 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+<VBox fx:id="dayVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.DayViewController">
    <children>
-      <Label text="Date Label">
+      <Label fx:id="dateLabel" text="Date Label">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <HBox prefHeight="167.0" prefWidth="450.0">
          <children>
-            <VBox prefHeight="165.0" prefWidth="225.0">
+            <VBox fx:id="tideDataVBox" prefHeight="165.0" prefWidth="225.0">
                <children>
                   <Label text="Tides">
                      <font>
@@ -22,7 +23,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="165.0" prefWidth="224.0">
+            <VBox fx:id="moonDataVBox" prefHeight="165.0" prefWidth="224.0">
                <children>
                   <Label text="Moon Phase">
                      <font>

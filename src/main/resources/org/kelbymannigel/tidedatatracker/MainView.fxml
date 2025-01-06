@@ -67,7 +67,7 @@
       </ToolBar>
       <ScrollPane layoutX="150.0" layoutY="40.0" prefHeight="560.0" prefWidth="500.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="500.0" />
+            <VBox fx:id="daysVBox" prefHeight="200.0" prefWidth="500.0" />
          </content>
       </ScrollPane>
    </children>
