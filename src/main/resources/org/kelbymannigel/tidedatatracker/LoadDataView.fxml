@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.LoadDataViewController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="650.0">
+        <items>
+          <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onReturnButtonPressed" text="Return" />
+        </items>
+      </ToolBar>
+      <VBox layoutY="40.0" prefHeight="560.0" prefWidth="650.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Label text="Tide Data File Path (txt)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tideDataFilePathTextField" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></TextField>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="Moon Data File Path (txt)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="moonDataFilePathTextField" prefHeight="25.0" prefWidth="250.0" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+               </padding>
+            </HBox>
+            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" text="Load Data">
+               <VBox.margin>
+                  <Insets left="265.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
