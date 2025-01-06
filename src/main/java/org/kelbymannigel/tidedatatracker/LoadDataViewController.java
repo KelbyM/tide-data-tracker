@@ -14,17 +14,17 @@ public class LoadDataViewController {
     // CONTROL ELEMENTS
 
     @FXML
-    protected Button returnButton,
-                     loadDataButton;
+    private Button returnButton,
+                   loadDataButton;
 
     @FXML
-    protected TextField tideDataFilePathTextField,
-                        moonDataFilePathTextField;
+    private TextField tideDataFilePathTextField,
+                      moonDataFilePathTextField;
 
     // ACTIONS
 
     @FXML
-    protected void onReturnButtonPressed(ActionEvent event) {
+    private void onReturnButtonPressed(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainView.fxml"));
             Parent root = loader.load();
@@ -36,7 +36,7 @@ public class LoadDataViewController {
     }
 
     @FXML
-    protected void onLoadDataButtonPressed() {
+    private void onLoadDataButtonPressed() {
         DayManager manager = DayManager.getInstance();
         manager.setTideDataFilePath(tideDataFilePathTextField.getText());
         manager.setMoonDataFilePath(moonDataFilePathTextField.getText());
