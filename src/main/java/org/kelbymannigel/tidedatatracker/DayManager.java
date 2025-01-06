@@ -19,6 +19,12 @@ public class DayManager {
 
     // CONSTRUCTORS
 
+    private DayManager() {
+        this.tideDataFilePath = "";
+        this.moonDataFilePath = "";
+        this.yearData = new ArrayList<>();
+    }
+
     private DayManager(String tideDataFilePath, String moonDataFilePath) {
         this.tideDataFilePath = tideDataFilePath;
         this.moonDataFilePath = moonDataFilePath;
@@ -36,6 +42,15 @@ public class DayManager {
     public static void createInstance(String tideDataFilePath, String moonDataFilePath) {
         if(dayManager == null) {
             dayManager = new DayManager(tideDataFilePath, moonDataFilePath);
+        }
+        else {
+            System.out.println("Error: createInstance has already been called.");
+        }
+    }
+
+    public static void createInstance() {
+        if(dayManager == null) {
+            dayManager = new DayManager();
         }
         else {
             System.out.println("Error: createInstance has already been called.");
@@ -107,7 +122,7 @@ public class DayManager {
     /**
      * Populates the ArrayList with Day objects containing data from the data files.
      */
-    private void parseYear() {
+    public void parseYear() {
         yearData = new ArrayList<>();
         // create the data processors
         TideDataProcessor tideDataProcessor = new TideDataFileReader(tideDataFilePath);
