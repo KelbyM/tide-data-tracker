@@ -11,6 +11,7 @@ public class RunApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        DayManager.createInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(RunApplication.class.getResource("MainView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 610, 600);
         primaryStage.setTitle("Tide Watch");
