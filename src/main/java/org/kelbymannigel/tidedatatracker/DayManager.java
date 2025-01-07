@@ -1,5 +1,6 @@
 package org.kelbymannigel.tidedatatracker;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class DayManager {
@@ -103,6 +104,32 @@ public class DayManager {
     }
 
     // OTHER METHODS
+
+    public boolean checkFilePaths() {
+        boolean filePathsFound = true;
+        // check the tide data file path
+        if(tideDataFilePath == null) {
+            System.out.println("Error: Tide data file path not set.");
+            filePathsFound = false;
+        } else {
+            if(!new File(tideDataFilePath).exists()) {
+                System.out.println("Error: Tide data file not found.");
+                filePathsFound = false;
+
+            }
+        }
+        // check the moon data file path
+        if(moonDataFilePath == null) {
+            System.out.println("Error: Moon data file path not set.");
+            filePathsFound = false;
+        } else {
+            if(!new File(moonDataFilePath).exists()) {
+                System.out.println("Error: Moon data file not found.");
+                filePathsFound = false;
+            }
+        }
+        return filePathsFound;
+    }
 
     /**
      * Creates and returns a Day object with tide and moon data.
