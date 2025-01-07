@@ -1,5 +1,6 @@
 package org.kelbymannigel.tidedatatracker;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 import java.time.LocalDate;
@@ -56,6 +57,18 @@ public class Day {
     // OTHER METHODS
 
     public VBox getGUI() {
+        try {
+            // load DayView.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DayView.fxml"));
+            VBox vBox = loader.load();
+            // access the DayViewController
+            DayViewController controller = loader.getController();
+            // add the data to the DayView
+            controller.setDayInformation(this);
+            return vBox;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
