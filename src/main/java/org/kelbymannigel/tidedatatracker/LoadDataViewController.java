@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,14 +22,21 @@ public class LoadDataViewController {
     private TextField tideDataFilePathTextField,
                       moonDataFilePathTextField;
 
+    @FXML
+    private Label checkFilePathsLabel;
+
     // ACTIONS
 
     @FXML
     private void onReturnButtonPressed(ActionEvent event) {
         try {
+            // load MainView.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainView.fxml"));
+            // load the root node
             Parent root = loader.load();
+            // get the stage
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            // create a new scene with MainView
             stage.setScene(new Scene(root));
         } catch(Exception e) {
             e.printStackTrace();
@@ -40,6 +48,15 @@ public class LoadDataViewController {
         DayManager manager = DayManager.getInstance();
         manager.setTideDataFilePath(tideDataFilePathTextField.getText());
         manager.setMoonDataFilePath(moonDataFilePathTextField.getText());
-        manager.parseYear();
+        // check if the files can be found
+        if(!manager.checkFilePaths()) {
+            checkFilePathsLabel.setText("Error: Data files not found.");
+            return;
+        }
+        else {
+            checkFilePathsLabel.setText("The data files have been found.");
+            manager.parseYear();
+        }
+
     }
 }
