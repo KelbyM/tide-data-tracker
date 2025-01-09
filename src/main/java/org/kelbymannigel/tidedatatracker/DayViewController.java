@@ -1,8 +1,11 @@
 package org.kelbymannigel.tidedatatracker;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Border;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -19,6 +22,11 @@ public class DayViewController {
     private VBox tideDataVBox,
                  moonDataVBox,
                  dayVBox;
+
+    // CHART
+
+    @FXML
+    private LineChart<Number, Number> tideLineChart;
 
     // ACTIONS
 
@@ -49,5 +57,20 @@ public class DayViewController {
         // create a border to visually separate it
         Border border = new Border(new javafx.scene.layout.BorderStroke(Color.GRAY, javafx.scene.layout.BorderStrokeStyle.SOLID, null, new javafx.scene.layout.BorderWidths(2)));
         dayVBox.setBorder(border);
+        // add the tides to the chart
+        populateTidesChart(day);
+    }
+
+    private void populateTidesChart(Day day) {
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        // iterate through all tides
+        for (TideData data : day.getTides()) {
+            double time = data.getTime().getHour() + data.getTime().getMinute() / 60.0;
+            // add the time and height of tide to the series
+            series.getData().add(new XYChart.Data<>(time, data.getTideHeight()));
+        }
+        tideLineChart.setLegendVisible(false);
+        // add the series to the chart
+        tideLineChart.getData().add(series);
     }
 }

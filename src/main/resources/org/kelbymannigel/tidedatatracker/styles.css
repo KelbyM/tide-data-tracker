@@ -1,0 +1,6 @@
+.chart-series-line {
+    -fx-stroke-line-join: round;
+    -fx-stroke-width: 2px;
+    -fx-smooth: true;
+    -fx-stroke: #0073e6;
+}

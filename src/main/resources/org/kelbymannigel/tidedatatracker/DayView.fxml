@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox fx:id="dayVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.DayViewController">
+<VBox fx:id="dayVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.DayViewController">
    <children>
       <Label fx:id="dateLabel" text="Date Label">
          <font>
@@ -34,5 +34,16 @@
             </VBox>
          </children>
       </HBox>
+      <Pane fx:id="tideGraphPane" prefHeight="298.0" prefWidth="500.0">
+         <children>
+            <LineChart fx:id="tideLineChart" layoutY="1.0" prefHeight="300.0" prefWidth="500.0" styleClass="chart-series-line">
+              <xAxis>
+                <NumberAxis label="Time (24hr)" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Tide Height (ft)" side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></Pane>
    </children>
 </VBox>
