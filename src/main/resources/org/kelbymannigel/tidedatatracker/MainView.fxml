@@ -11,11 +11,11 @@
          <children>
             <DatePicker fx:id="startDatePicker" promptText="Start Date" />
             <DatePicker fx:id="endDatePicker" promptText="End Date" />
-            <TextField fx:id="startTime" promptText="Start Time HH::MM">
+            <TextField fx:id="startTimeTextField" promptText="Start Time HH::MM">
                <VBox.margin>
                   <Insets />
                </VBox.margin></TextField>
-            <TextField fx:id="endTimeTextField" promptText="End TIime HH:MM">
+            <TextField fx:id="endTimeTextField" promptText="End Time HH:MM">
                <VBox.margin>
                   <Insets />
                </VBox.margin></TextField>
