@@ -13,12 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class DayManagerTest {
 
     DayManager manager;
+
     Day firstDay, lastDay;
 
+    /**
+     * Sets up the manager and creates the test values.
+     */
     @BeforeEach
     void setUp() {
         DayManager.createInstance("src\\test\\resources\\TideDataExample.txt", "src\\test\\resources\\MoonDataExample.txt");
         manager = DayManager.getInstance();
+        manager.parseYear();
         // TideData for 1/1/24
         ArrayList<TideData> tidesForFirstDay = new ArrayList<>();
         tidesForFirstDay.add(new TideData(LocalDateTime.of(2024, 1, 1, 1, 12), 3.97, true));

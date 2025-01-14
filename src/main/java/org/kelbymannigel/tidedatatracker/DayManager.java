@@ -3,6 +3,9 @@ package org.kelbymannigel.tidedatatracker;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * Manages the creation of Day objects. Contains a year of Day objects.
+ */
 public class DayManager {
 
     // INSTANCE VARIABLES
@@ -20,23 +23,30 @@ public class DayManager {
 
     // CONSTRUCTORS
 
+    /**
+     * Default Constructor
+     */
     private DayManager() {
         this.tideDataFilePath = "";
         this.moonDataFilePath = "";
         this.yearData = new ArrayList<>();
     }
 
+    /**
+     * Sets the tide and moon data file paths.
+     * @param tideDataFilePath The file path to the tide data.
+     * @param moonDataFilePath The file path to the moon data.
+     */
     private DayManager(String tideDataFilePath, String moonDataFilePath) {
         this.tideDataFilePath = tideDataFilePath;
         this.moonDataFilePath = moonDataFilePath;
-        // populate yearData
-        parseYear();
+        this.yearData = new ArrayList<>();
     }
 
     // SINGLETON PATTERN METHODS
 
     /**
-     * Initializes the dayManager instance variable.
+     * Initializes the dayManager variable using the file paths.
      * @param tideDataFilePath The file path to the tide data file.
      * @param moonDataFilePath The file path to the moon data file.
      */
@@ -49,6 +59,9 @@ public class DayManager {
         }
     }
 
+    /**
+     * Initializes the dayManager variable.
+     */
     public static void createInstance() {
         if(dayManager == null) {
             dayManager = new DayManager();
@@ -71,6 +84,7 @@ public class DayManager {
     }
 
     // ASSESSORS/MUTATORS
+
     public static DayManager getDayManager() {
         return dayManager;
     }
@@ -105,6 +119,11 @@ public class DayManager {
 
     // OTHER METHODS
 
+    /**
+     * Checks if both the tide and moon data file paths are valid.
+     * @return True: Both files were found.
+     *         False: One or both files were not found.
+     */
     public boolean checkFilePaths() {
         boolean filePathsFound = true;
         // check the tide data file path

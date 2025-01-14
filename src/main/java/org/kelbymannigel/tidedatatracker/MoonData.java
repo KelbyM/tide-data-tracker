@@ -1,5 +1,8 @@
 package org.kelbymannigel.tidedatatracker;
 
+/**
+ * Represents the moon data for a day.
+ */
 public class MoonData {
 
     // INSTANCE VARIABLES
@@ -82,11 +85,16 @@ public class MoonData {
 
     // OTHER METHODS
 
+    /**
+     * Determines the moon phase based on the time since the new moon.
+     * @return The moon phase name.
+     */
     public String processPhaseName() {
-        // calculate the length of a phase of the moon in time since previous
+        // the number of days in a moon cycle
         double maxTime = 29.5;
+        // calculate the length of a moon phase in days
         double phaseLength = maxTime / MOON_PHASES.length;
-        // get the correct moon phase name based off of current illumination
+        // get moon phase name based on the days since the last new moon
         int phaseNumber = (int)(daysSinceNewMoon / phaseLength);
         // check if outside of bounds and set to max phase number
         if(phaseNumber >= MOON_PHASES.length) {

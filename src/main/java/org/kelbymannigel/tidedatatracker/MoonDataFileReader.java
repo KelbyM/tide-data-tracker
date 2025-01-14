@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Connects to a moon data text file and creates MoonData objects using the data.
+ */
 public class MoonDataFileReader implements MoonDataProcessor {
 
     // INSTANCE VARIABLES

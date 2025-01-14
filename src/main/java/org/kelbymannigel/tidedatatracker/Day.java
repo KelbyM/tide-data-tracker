@@ -6,13 +6,20 @@ import javafx.scene.layout.VBox;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Represents a day which contains a date, tide data and moon data.
+ */
 public class Day {
 
     // INSTANCE VARIABLES
+
+    /** The day's date. */
     private LocalDate date;
 
+    /** All tides for this day. */
     private ArrayList<TideData> tides;
 
+    /** The moon data for this day. */
     private MoonData moonData;
 
     // CONSTRUCTOR
@@ -56,6 +63,10 @@ public class Day {
 
     // OTHER METHODS
 
+    /**
+     * Loads and returns a VBox containing the Day's tide and moon data in a GUI.
+     * @return The Vbox containing the Day's tide and moon data in a GUI.
+     */
     public VBox getGUI() {
         try {
             // load DayView.fxml

@@ -10,9 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * The controller class for LoadDataView.fxml.
+ */
 public class LoadDataViewController {
 
-    // CONTROL ELEMENTS
+    // CONTROL
 
     @FXML
     private Button returnButton,
@@ -25,8 +28,11 @@ public class LoadDataViewController {
     @FXML
     private Label checkFilePathsLabel;
 
-    // ACTIONS
+    // ACTION
 
+    /**
+     * Handles the action of the "Return" button being pressed in the UI.
+     */
     @FXML
     private void onReturnButtonPressed(ActionEvent event) {
         try {
@@ -43,6 +49,9 @@ public class LoadDataViewController {
         }
     }
 
+    /**
+     * Handles the action of the "Load Data" button being pressed in the UI.
+     */
     @FXML
     private void onLoadDataButtonPressed() {
         DayManager manager = DayManager.getInstance();
@@ -51,7 +60,6 @@ public class LoadDataViewController {
         // check if the files can be found
         if(!manager.checkFilePaths()) {
             checkFilePathsLabel.setText("Error: Data files not found.");
-            return;
         }
         else {
             checkFilePathsLabel.setText("The data files have been found.");

@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * Connects to a tide data text file and creates TideData objects using the data.
+ */
 public class TideDataFileReader implements TideDataProcessor {
 
     // INSTANCE VARIABLES

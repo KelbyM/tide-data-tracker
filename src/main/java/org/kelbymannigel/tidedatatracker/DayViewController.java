@@ -5,18 +5,20 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Border;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+/**
+ * The controller class for DayView.fxml.
+ */
 public class DayViewController {
 
-    // CONTROLS
+    // CONTROL
 
     @FXML
     private Label dateLabel;
 
-    // LAYOUTS
+    // LAYOUT
 
     @FXML
     private VBox tideDataVBox,
@@ -28,11 +30,15 @@ public class DayViewController {
     @FXML
     private LineChart<Number, Number> tideLineChart;
 
-    // ACTIONS
+    // ACTION
 
+    /**
+     * Fills the DayView with tide and moon data.
+     * @param day The Day object containing the tide and moon data.
+     */
     public void setDayInformation(Day day) {
         // set dateLabel
-        dateLabel.setText(day.getDate().toString());
+        dateLabel.setText(day.getDate().getMonthValue() + "/" + day.getDate().getDayOfMonth());
         // add the tide data to the tideDataVBox
         for(TideData data : day.getTides()) {
             String tideType = data.isHighTide() ? "High" : "Low ";
@@ -61,6 +67,10 @@ public class DayViewController {
         populateTidesChart(day);
     }
 
+    /**
+     * Populates the line chart with tide data.
+     * @param day The Day object containing the tide data.
+     */
     private void populateTidesChart(Day day) {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         // iterate through all tides

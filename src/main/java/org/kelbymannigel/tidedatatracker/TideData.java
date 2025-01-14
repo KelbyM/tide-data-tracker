@@ -2,6 +2,9 @@ package org.kelbymannigel.tidedatatracker;
 
 import java.time.LocalDateTime;
 
+/**
+ * Represents the tide data for one tide that occurs during the day.
+ */
 public class TideData {
 
     // INSTANCE VARIABLES

@@ -18,12 +18,15 @@ import javafx.stage.Stage;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+/**
+ * The controller class for MainView.fxml.
+ */
 public class MainViewController {
 
     /** Contains the days to be displayed. */
     private final ObservableList<Day> days = FXCollections.observableArrayList();
 
-    // CONTROLS
+    // CONTROL
 
     @FXML
     private DatePicker startDatePicker,
@@ -46,19 +49,25 @@ public class MainViewController {
                    loadDataButton,
                    viewAllButton;
 
-    // LAYOUTS
+    // LAYOUT
 
     @FXML
     private VBox daysVBox;
 
-    // ACTIONS
+    // ACTION
 
+    /**
+     * Initializes the controller and sets up a listener for UI updates.
+     */
     @FXML
     private void initialize() {
         // listener for refreshing the daysVBox when a change is made
         days.addListener((Observable observable) -> refreshDaysVBox());
     }
 
+    /**
+     * Refreshes the contents of the `daysVBox` to display the current list of days.
+     */
     private void refreshDaysVBox() {
         // clear the vBox
         daysVBox.getChildren().clear();
@@ -68,6 +77,9 @@ public class MainViewController {
         }
     }
 
+    /**
+     * Handles the action of the "Load Data" button being pressed in the UI.
+     */
     @FXML
     private void onLoadDataButtonPressed(ActionEvent event) {
         try {
@@ -84,6 +96,9 @@ public class MainViewController {
         }
     }
 
+    /**
+     * Handles the action of the "Search" button being pressed in the UI.
+     */
     @FXML
     private void onSearchButtonPressed() {
         DayManager manager = DayManager.getInstance();
@@ -191,6 +206,9 @@ public class MainViewController {
         days.addAll(searchResults);
     }
 
+    /**
+     * Handles the action of the "View All" button being pressed in the UI.
+     */
     @FXML
     private void onViewAllButtonPressed() {
         DayManager manager = DayManager.getInstance();
