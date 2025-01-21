@@ -52,7 +52,7 @@
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></VBox>
-      <ToolBar prefHeight="40.0" prefWidth="650.0">
+      <ToolBar prefHeight="40.0" prefWidth="700.0">
         <items>
           <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" text="Load Data" />
             <Label text="Tide Watch">
@@ -65,7 +65,7 @@
             </Label>
         </items>
       </ToolBar>
-      <ScrollPane layoutX="150.0" layoutY="40.0" prefHeight="560.0" prefWidth="500.0">
+      <ScrollPane layoutX="150.0" layoutY="40.0" prefHeight="560.0" prefWidth="550.0">
          <content>
             <VBox fx:id="daysVBox" prefHeight="200.0" prefWidth="500.0" />
          </content>

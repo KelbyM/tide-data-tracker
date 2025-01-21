@@ -7,12 +7,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.LoadDataViewController">
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="650.0">
+      <ToolBar prefHeight="40.0" prefWidth="700.0">
         <items>
           <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onReturnButtonPressed" text="Return" />
         </items>
       </ToolBar>
-      <VBox layoutY="40.0" prefHeight="560.0" prefWidth="650.0">
+      <VBox layoutY="40.0" prefHeight="560.0" prefWidth="700.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
