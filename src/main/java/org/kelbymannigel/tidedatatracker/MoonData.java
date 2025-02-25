@@ -1,11 +1,19 @@
 package org.kelbymannigel.tidedatatracker;
 
+import jakarta.persistence.*;
+
 /**
  * Represents the moon data for a day.
  */
+@Entity
+@Table(name = "MOON_DATA")
 public class MoonData {
 
     // INSTANCE VARIABLES
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     /** Moon phase names. */
     public static final String[] MOON_PHASES = {"New Moon", "Waxing Crescent", "First Quarter",
@@ -13,9 +21,11 @@ public class MoonData {
                                                 "Last Quarter", "Waning Crescent"};
 
     /** The illumination percentage. */
+    @Column(nullable = false)
     private double illumination;
 
     /** Number of days since the new moon. */
+    @Column(nullable = false)
     private double daysSinceNewMoon;
 
     // CONSTRUCTORS

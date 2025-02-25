@@ -1,24 +1,38 @@
 package org.kelbymannigel.tidedatatracker;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 /**
  * Represents the tide data for one tide that occurs during the day.
  */
+@Entity
+@Table(name = "TIDE_DATA")
 public class TideData {
 
     // INSTANCE VARIABLES
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "day_id", nullable = false)
+    private Day day;
+
     /** Time of the high or low tide. */
+    @Column(name = "time", nullable = false)
     private LocalDateTime time;
 
     /** Height of the high or low tide in feet. */
+    @Column(name = "tide_height", nullable = false)
     private double tideHeight;
 
     /**
      * true: high tide
      * false: low tide
      * */
+    @Column(name = "high_tide", nullable = false)
     private boolean isHighTide;
 
     // CONSTRUCTORS
@@ -45,6 +59,14 @@ public class TideData {
     }
 
     // ASSESSORS/MUTATORS
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
+    }
 
     public LocalDateTime getTime() {
         return time;

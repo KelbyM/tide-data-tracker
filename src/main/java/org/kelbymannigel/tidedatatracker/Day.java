@@ -3,26 +3,49 @@ package org.kelbymannigel.tidedatatracker;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a day which contains a date, tide data and moon data.
  */
+@Entity
+@Table(name = "DAYS")
 public class Day {
 
     // INSTANCE VARIABLES
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     /** The day's date. */
+    @Column(unique = true, nullable = false)
     private LocalDate date;
 
     /** All tides for this day. */
-    private ArrayList<TideData> tides;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "day", fetch = FetchType.LAZY)
+    private List<TideData> tides;
 
     /** The moon data for this day. */
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "moon_data_id", referencedColumnName = "id")
     private MoonData moonData;
 
     // CONSTRUCTOR
+
+    /**
+     * Default Constructor
+     */
+    public Day() {
+        this.date = LocalDate.now();
+        this.tides = new ArrayList<>();
+        this.moonData = new MoonData();
+    }
+
     /**
      * Full Constructor
      * @param date The date of the day.
@@ -45,7 +68,7 @@ public class Day {
         this.date = date;
     }
 
-    public ArrayList<TideData> getTides() {
+    public List<TideData> getTides() {
         return tides;
     }
 
@@ -89,7 +112,7 @@ public class Day {
         if (o == null || getClass() != o.getClass()) return false;
         Day day = (Day) o;
         if (!date.equals(day.date)) return false;
-        if (!tides.equals(day.tides)) return false;
+        if (!new ArrayList<>(tides).equals(new ArrayList<>(day.tides))) return false;
         return moonData.equals(day.moonData);
     }
 
