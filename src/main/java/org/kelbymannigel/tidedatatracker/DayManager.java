@@ -161,8 +161,13 @@ public class DayManager {
         ArrayList<TideData> tides = tideDataProcessor.getNextTideData();
         // get the moon data for the day
         MoonData moonData = moonDataProcessor.getNextMoonData();
-        // return the day object
-        return new Day(tides.getFirst().getTime().toLocalDate(), tides, moonData);
+        // creating the day object
+        Day day = new Day(tides.getFirst().getTime().toLocalDate(), tides, moonData);
+        // setting the day for each tide (many-to-one relationship)
+        for(TideData tide: tides) {
+            tide.setDay(day);
+        }
+        return day;
     }
 
     /**
@@ -177,6 +182,19 @@ public class DayManager {
         while(moonDataProcessor.hasNextMoonData()) {
             yearData.add(parseDay(tideDataProcessor, moonDataProcessor));
         }
+    }
+
+    /**
+     * Retrieves the data from the database;
+     */
+    public void getYearFromDatabase() {
+        yearData = DatabaseManager.getYear();
+    }
+    /**
+     * Passes the year data to the DatabaseManager so that they can be written to the database.
+     */
+    public void saveYear() {
+        DatabaseManager.writeDays(yearData);
     }
 
     @Override
