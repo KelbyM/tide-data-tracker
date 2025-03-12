@@ -1,14 +1,16 @@
 package org.kelbymannigel.tidedatatracker;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 class DayManagerTest {
 
@@ -50,5 +52,49 @@ class DayManagerTest {
     @Test
     void getYearData() {
         assertTrue(manager.getYearData().getFirst().equals(firstDay) && manager.getYearData().getLast().equals(lastDay));
+    }
+
+    /**
+     * Tests if the data can be written to the database.
+     */
+    @Test
+    void databaseWrite() {
+        EntityManager entityManager = DatabaseManager.getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            transaction.begin();
+            // persisting the Day objects
+            for (Day day : manager.getYearData()) {
+                entityManager.persist(day);
+            }
+            // commiting the transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            // closing the EntityManager
+            entityManager.close();
+        }
+    }
+
+    /**
+     * Tests if the Day objects can be read from the database.
+     */
+    @Test
+    void databaseRead() {
+        EntityManager entityManager = DatabaseManager.getEntityManager();
+        try {
+            List<Day> days = entityManager.createQuery("SELECT d FROM Day d", Day.class).getResultList();
+            assertTrue(days.getFirst().equals(firstDay) && days.getLast().equals(lastDay));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
     }
 }
