@@ -17,16 +17,22 @@ public class LoadDataViewController {
 
     // CONTROL
 
+    // BUTTON
     @FXML
     private Button returnButton,
-                   loadDataButton;
+                   loadDataButton,
+                   loadDataFromDatabaseButton,
+                   saveDataButton;
 
+    // TEXT FIELD
     @FXML
     private TextField tideDataFilePathTextField,
                       moonDataFilePathTextField;
 
+    // LABEL
     @FXML
-    private Label checkFilePathsLabel;
+    private Label checkFilePathsLabel,
+                  saveToDatabaseLabel;
 
     // ACTION
 
@@ -65,6 +71,25 @@ public class LoadDataViewController {
             checkFilePathsLabel.setText("The data files have been found.");
             manager.parseYear();
         }
+    }
 
+    /**
+     * Handles the action of the "Load Data" button being pressed in the UI.
+     */
+    @FXML
+    private void onLoadDataFromDatabaseButtonPressed() {
+        DayManager dayManager = DayManager.getInstance();
+        dayManager.getYearFromDatabase();
+    }
+
+    /**
+     * Handles the action of the "Save Data" button being pressed in the UI.
+     */
+    @FXML
+    private void onSaveDataButtonPressed() {
+        // get the DayManager
+        DayManager dayManager = DayManager.getInstance();
+        // write the days to the database
+        dayManager.saveYear();
     }
 }
