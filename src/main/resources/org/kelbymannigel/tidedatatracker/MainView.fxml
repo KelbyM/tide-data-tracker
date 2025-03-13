@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.MainViewController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kelbymannigel.tidedatatracker.MainViewController">
    <children>
       <VBox layoutY="40.0" prefHeight="560.0" prefWidth="150.0" spacing="5.0" style="-fx-background-color: lightgray;">
          <children>
@@ -54,7 +54,7 @@
          </padding></VBox>
       <ToolBar prefHeight="40.0" prefWidth="700.0">
         <items>
-          <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" text="Load Data" />
+          <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" text="Load / Save Data" />
             <Label text="Tide Watch">
                <padding>
                   <Insets left="250.0" />
