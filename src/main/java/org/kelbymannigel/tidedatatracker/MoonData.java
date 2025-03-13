@@ -15,6 +15,9 @@ public class MoonData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @OneToOne(mappedBy = "moonData", fetch = FetchType.EAGER)
+    private Day day;
+
     /** Moon phase names. */
     public static final String[] MOON_PHASES = {"New Moon", "Waxing Crescent", "First Quarter",
                                                 "Waxing Gibbous", "Full Moon", "Waning Gibbous",

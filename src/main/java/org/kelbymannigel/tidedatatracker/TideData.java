@@ -16,7 +16,7 @@ public class TideData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "day_id", nullable = false)
     private Day day;
 

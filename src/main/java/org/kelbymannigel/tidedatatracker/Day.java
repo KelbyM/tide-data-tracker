@@ -27,11 +27,11 @@ public class Day {
     private LocalDate date;
 
     /** All tides for this day. */
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "day", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "day", fetch = FetchType.EAGER)
     private List<TideData> tides;
 
     /** The moon data for this day. */
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "moon_data_id", referencedColumnName = "id")
     private MoonData moonData;
 
