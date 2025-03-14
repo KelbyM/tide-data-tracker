@@ -55,9 +55,9 @@
       <ToolBar prefHeight="40.0" prefWidth="700.0">
         <items>
           <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" text="Load / Save Data" />
-            <Label text="Tide Watch">
+            <Label prefHeight="20.0" prefWidth="365.0" text="Tide Watch">
                <padding>
-                  <Insets left="250.0" />
+                  <Insets left="210.0" />
                </padding>
                <font>
                   <Font name="OCR A Extended" size="18.0" />
