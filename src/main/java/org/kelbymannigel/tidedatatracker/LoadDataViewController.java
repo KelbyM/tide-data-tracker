@@ -22,7 +22,8 @@ public class LoadDataViewController {
     private Button returnButton,
                    loadDataButton,
                    loadDataFromDatabaseButton,
-                   saveDataButton;
+                   saveDataButton,
+                   deleteAllDataButton;
 
     // TEXT FIELD
     @FXML
@@ -60,6 +61,7 @@ public class LoadDataViewController {
      */
     @FXML
     private void onLoadDataButtonPressed() {
+        // get the DayManager
         DayManager manager = DayManager.getInstance();
         manager.setTideDataFilePath(tideDataFilePathTextField.getText());
         manager.setMoonDataFilePath(moonDataFilePathTextField.getText());
@@ -78,6 +80,7 @@ public class LoadDataViewController {
      */
     @FXML
     private void onLoadDataFromDatabaseButtonPressed() {
+        // get the DayManager
         DayManager dayManager = DayManager.getInstance();
         dayManager.getYearFromDatabase();
     }
@@ -91,5 +94,11 @@ public class LoadDataViewController {
         DayManager dayManager = DayManager.getInstance();
         // write the days to the database
         dayManager.saveYear();
+    }
+
+    @FXML
+    private void onDeleteAllDataButtonPressed() {
+        // delete all data in the database
+        DatabaseManager.deleteAllData();
     }
 }
