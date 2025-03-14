@@ -23,10 +23,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="saveDataButton" mnemonicParsing="false" onAction="#onSaveDataButtonPressed" text="Save To Database" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" text="Load From File" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="saveDataButton" mnemonicParsing="false" onAction="#onSaveDataButtonPressed" prefWidth="125.0" text="Save To Database" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" prefWidth="125.0" text="Load From File" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Label fx:id="checkFilePathsLabel" prefHeight="20.0" prefWidth="271.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="14.0" />
@@ -45,7 +46,8 @@
             </Label>
             <TextField fx:id="moonDataFilePathTextField" prefHeight="25.0" prefWidth="250.0" text="src\test\resources\MoonDataExample.txt" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Label fx:id="saveToDatabaseLabel" prefHeight="17.0" prefWidth="324.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button fx:id="loadDataFromDatabase" mnemonicParsing="false" onAction="#onLoadDataFromDatabaseButtonPressed" text="Load From Database" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="loadDataFromDatabase" mnemonicParsing="false" onAction="#onLoadDataFromDatabaseButtonPressed" prefWidth="125.0" text="Load From Database" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="deleteAllDataButton" mnemonicParsing="false" onAction="#onDeleteAllDataButtonPressed" prefWidth="125.0" text="Delete All Data" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
          </children>
          <padding>
             <Insets bottom="20.0" left="80.0" right="80.0" top="20.0" />
