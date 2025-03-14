@@ -28,10 +28,12 @@ public class MainViewController {
 
     // CONTROL
 
+    // DATE PICKER
     @FXML
     private DatePicker startDatePicker,
                        endDatePicker;
 
+    // TEXT FIELD
     @FXML
     private TextField startTimeTextField,
                       endTimeTextField,
@@ -40,10 +42,12 @@ public class MainViewController {
                       minMoonIlluminationTextField,
                       maxMoonIlluminationTextField;
 
+    // RADIO BUTTON
     @FXML
     private RadioButton lowTideRadioButton,
                         highTideRadioButton;
 
+    // BUTTON
     @FXML
     private Button searchButton,
                    loadDataButton,
