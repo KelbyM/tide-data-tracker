@@ -131,4 +131,30 @@ public class DatabaseManager {
         }
         return year;
     }
+
+    /**
+     * Deletes all data from the database.
+     */
+    public static void deleteAllData() {
+        // get the DatabaseManager
+        EntityManager entityManager = DatabaseManager.getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            // deleting all data in the tables
+            entityManager.createQuery("DELETE FROM TideData").executeUpdate();
+            entityManager.createQuery("DELETE FROM Day").executeUpdate();
+            entityManager.createQuery("DELETE FROM MoonData").executeUpdate();
+            // commiting the transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            // closing the EntityManager
+            entityManager.close();
+        }
+    }
 }
