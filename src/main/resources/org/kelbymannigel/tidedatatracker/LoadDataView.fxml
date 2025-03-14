@@ -12,7 +12,7 @@
           <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onReturnButtonPressed" text="Return" />
         </items>
       </ToolBar>
-      <GridPane layoutY="40.0" prefHeight="651.0" prefWidth="700.0">
+      <GridPane layoutY="40.0" prefHeight="560.0" prefWidth="700.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,7 +27,7 @@
         </rowConstraints>
          <children>
             <Button fx:id="saveDataButton" mnemonicParsing="false" onAction="#onSaveDataButtonPressed" prefWidth="125.0" text="Save To Database" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" prefWidth="125.0" text="Load From File" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#onLoadDataButtonPressed" prefWidth="125.0" text="Load From Files" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Label fx:id="checkFilePathsLabel" prefHeight="20.0" prefWidth="271.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="14.0" />
